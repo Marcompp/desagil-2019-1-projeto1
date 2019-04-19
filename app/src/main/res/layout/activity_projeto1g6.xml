@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,16 +11,16 @@
     <TextView android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20sp"
+        android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:text="Input"/>
     <TextView android:id="@+id/atalho"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20sp"
+        android:paddingTop="50sp"
         android:textSize="30sp"
         android:text="Atalho"/>
 
 
 
-</LinearLayout>
+</RelativeLayout>
