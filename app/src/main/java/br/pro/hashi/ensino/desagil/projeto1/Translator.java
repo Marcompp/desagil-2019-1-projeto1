@@ -54,7 +54,7 @@ public class Translator {
         dict.put("--..",'z');
 
         char c;
-        
+
         c = dict.get(code);
 
         return c ;

@@ -8,15 +8,23 @@
     tools:context=".InputActivity">
     
     <TextView
+        android:id="@+id/intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Escreva Aqui:"
+        android:text="Mensagem:"
         />
     <EditText
+        android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite aqui a sua mensagem"/>
+    <Button
+        android:id="@+id/set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Traduzir"/>
     <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
