@@ -32,7 +32,7 @@ public class Projeto1G6 extends AppCompatActivity {
         startActivity(intent);
     }
     private void openAtalho() {
-        Intent intent = new Intent(this, InputActivity.class);
+        Intent intent = new Intent(this, PresetActivity.class);
         startActivity(intent);
     }
 }
