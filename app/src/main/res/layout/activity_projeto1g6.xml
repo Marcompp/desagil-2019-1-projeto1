@@ -5,36 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Projeto1G6">
+    tools:context=".Projeto1G6"
+    android:gravity="center">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18sp"
+        android:layout_marginTop="-200sp"
+        android:layout_marginLeft="10sp"
         android:text="O que deseja fazer?"
-        android:paddingTop="10sp"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
 
 
     <Button
         android:id="@+id/input"
-        android:layout_marginTop="60sp"
-        android:layout_marginLeft="70sp"
         android:layout_width="220sp"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
+        android:layout_marginTop="50sp"
         android:text="Input"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/dict"
         android:layout_width="220sp"
-        android:layout_marginLeft="70sp"
         android:layout_height="wrap_content"
         android:text="Dicionário"
         android:textSize="20sp" />
+
     <Button
         android:id="@+id/atalho"
-        android:layout_marginLeft="70sp"
         android:layout_width="220sp"
         android:layout_height="wrap_content"
         android:text="Preset"
