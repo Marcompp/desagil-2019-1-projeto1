@@ -5,28 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InputActivity">
-    
-    <TextView
-        android:id="@+id/intro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mensagem:"
-        />
-    <EditText
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Digite aqui a sua mensagem"/>
+    tools:context=".DictionaryActivity">
     <Button
-        android:id="@+id/set"
+        android:id="@+id/m1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Traduzir"/>
-    <TextView
-        android:id="@+id/text"
+        android:text="Mensagem PréDefinida 1"/>
+
+    <Button
+        android:id="@+id/m2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Mensagem PréDefinida 2"/>
 
+    <Button
+        android:id="@+id/m3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mensagem PréDefinida 3"/>
 
+    <Button
+        android:id="@+id/m4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mensagem PréDefinida 4"/>
 </LinearLayout>
