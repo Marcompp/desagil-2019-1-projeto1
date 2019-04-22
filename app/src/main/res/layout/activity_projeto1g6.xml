@@ -12,9 +12,16 @@
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:text="Input"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/dict"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dicionário"
+        android:textSize="30sp" />
     <Button
         android:id="@+id/atalho"
         android:layout_width="match_parent"

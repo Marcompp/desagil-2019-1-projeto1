@@ -14,16 +14,21 @@ public class Projeto1G6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projeto1g6);
         Button input= findViewById(R.id.input);
+        Button dict = findViewById(R.id.dict);
         Button atalho = findViewById(R.id.atalho);
 
         input.setOnClickListener(view -> openInput());
+        dict.setOnClickListener(view -> openDict());
         atalho.setOnClickListener(view -> openAtalho());
 
 }
 
-
     private void openInput() {
         Intent intent = new Intent(this, InputActivity.class);
+        startActivity(intent);
+    }
+    private void openDict() {
+        Intent intent = new Intent(this, DictionaryActivity.class);
         startActivity(intent);
     }
     private void openAtalho() {
