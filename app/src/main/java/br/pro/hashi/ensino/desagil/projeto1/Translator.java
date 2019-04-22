@@ -26,6 +26,16 @@ public class Translator {
     public char morseToChar(String code) {
         HashMap<String,Character> dict = new HashMap<String, Character>();
         //http://ascii-table.com/morse-code.php
+        dict.put("-----", '0');
+        dict.put(".----", '1');
+        dict.put("..---", '2');
+        dict.put("...--", '3');
+        dict.put("....-", '4');
+        dict.put(".....", '5');
+        dict.put("-....", '6');
+        dict.put("--...", '7');
+        dict.put("---..", '8');
+        dict.put("----.", '9');
         dict.put(".-",'a');
         dict.put("-...",'b');
         dict.put("-.-.",'c');
@@ -64,35 +74,44 @@ public class Translator {
     // Você deve mudar o recheio deste método, de
     // acordo com os requisitos não-funcionais.
     public String charToMorse(char c) {
-        HashMap<String,String> dict = new HashMap<String, String>();
+        HashMap<Character,String> dict = new HashMap<Character, String>();
         //http://ascii-table.com/morse-code.php
-        dict.put("a",".-");
-        dict.put("b","-...");
-        dict.put("c","-.-.");
-        dict.put("d","-..");
-        dict.put("e",".");
-        dict.put("f","..-.");
-        dict.put("g","--.");
-        dict.put("h","....");
-        dict.put("i","..");
-        dict.put("j",".---");
-        dict.put("k","-.-");
-        dict.put("l",".-..");
-        dict.put("m","--");
-        dict.put("n","-.");
-        dict.put("o","---");
-        dict.put("p",".--.");
-        dict.put("q","--.-");
-        dict.put("r",".-.");
-        dict.put("s","...");
-        dict.put("t","-");
-        dict.put("u","..-");
-        dict.put("v","...-");
-        dict.put("w",".--");
-        dict.put("x","-..-");
-        dict.put("y","-.--");
-        dict.put("z","--..");
-        dict.put(" "," ");
+        dict.put('0',"-----");
+        dict.put('1',".----");
+        dict.put('2',"..---");
+        dict.put('3',"...--");
+        dict.put('4',"....-");
+        dict.put('5',".....");
+        dict.put('6',"-....");
+        dict.put('7',"--...");
+        dict.put('8',"---..");
+        dict.put('9',"----.");
+        dict.put('a',".-");
+        dict.put('b',"-...");
+        dict.put('c',"-.-.");
+        dict.put('d',"-..");
+        dict.put('e',".");
+        dict.put('f',"..-.");
+        dict.put('g',"--.");
+        dict.put('h',"....");
+        dict.put('i',"..");
+        dict.put('j',".---");
+        dict.put('k',"-.-");
+        dict.put('l',".-..");
+        dict.put('m',"--");
+        dict.put('n',"-.");
+        dict.put('o',"---");
+        dict.put('p',".--.");
+        dict.put('q',"--.-");
+        dict.put('r',".-.");
+        dict.put('s',"...");
+        dict.put('t',"-");
+        dict.put('u',"..-");
+        dict.put('v',"...-");
+        dict.put('w',".--");
+        dict.put('x',"-..-");
+        dict.put('y',"-.--");
+        dict.put('z',"--..");
 
         String str;
 
