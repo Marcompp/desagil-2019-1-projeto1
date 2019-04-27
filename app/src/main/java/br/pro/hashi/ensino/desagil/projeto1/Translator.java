@@ -2,6 +2,9 @@ package br.pro.hashi.ensino.desagil.projeto1;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
 // Não é permitido mudar nada nessa classe
 // exceto o recheio dos três métodos.
@@ -16,6 +19,7 @@ public class Translator {
     public Translator() {
         root = new Node ('^');
         map = new HashMap<>();
+
 
         Node e = new Node('e');
         e.setParent(root);
@@ -34,10 +38,10 @@ public class Translator {
 
 
         Node n = new Node('n');
-        n.setParent(e);
+        n.setParent(t);
         t.setLeft(n);
         Node m = new Node('m');
-        m.setParent(e);
+        m.setParent(t);
         t.setRight(m);
 
 
@@ -84,7 +88,7 @@ public class Translator {
         Node f = new Node('f');
         f.setParent(u);
         u.setLeft(f);
-        Node blank1 = new Node(' ');
+        Node blank1 = new Node('~');
         blank1.setParent(u);
         u.setRight(blank1);
 
@@ -92,7 +96,7 @@ public class Translator {
         Node l = new Node('l');
         l.setParent(r);
         r.setLeft(l);
-        Node blank2 = new Node(' ');
+        Node blank2 = new Node('~');
         blank2.setParent(r);
         r.setRight(blank2);
 
@@ -129,10 +133,10 @@ public class Translator {
         g.setRight(q);
 
 
-        Node blank3 = new Node(' ');
+        Node blank3 = new Node('~');
         blank3.setParent(o);
         o.setLeft(blank3);
-        Node blank4 = new Node(' ');
+        Node blank4 = new Node('~');
         blank4.setParent(o);
         o.setRight(blank4);
 
@@ -193,28 +197,118 @@ public class Translator {
         zero.setParent(blank4);
         blank4.setRight(zero);
 
-        
+        map.put('^',root);
+        map.put('a',a);
+        map.put('b',b);
+        map.put('c',c);
+        map.put('d',d);
+        map.put('e',e);
+        map.put('f',f);
+        map.put('g',g);
+        map.put('h',h);
+        map.put('i',i);
+        map.put('j',j);
+        map.put('k',k);
+        map.put('l',l);
+        map.put('m',m);
+        map.put('n',n);
+        map.put('o',o);
+        map.put('p',p);
+        map.put('q',q);
+        map.put('r',r);
+        map.put('s',s);
+        map.put('t',t);
+        map.put('u',u);
+        map.put('v',v);
+        map.put('w',w);
+        map.put('x',x);
+        map.put('y',y);
+        map.put('z',z);
+        map.put('0',zero);
+        map.put('1',n1);
+        map.put('2',n2);
+        map.put('3',n3);
+        map.put('4',n4);
+        map.put('5',n5);
+        map.put('6',n6);
+        map.put('7',n7);
+        map.put('8',n8);
+        map.put('9',n9);
+        map.put('=', equal);
+        map.put('/',slash);
+        map.put('+',plus);
+
     }
 
 
     // Você deve mudar o recheio deste método, de
     // acordo com os requisitos não-funcionais.
     public char morseToChar(String code) {
-        return ' ';
+        Node m2c = root;
+
+        for (int i =0; i< code.length();i++){
+            if (code.charAt(i) == '-'){
+                m2c = m2c.getRight();
+            }
+            else if (code.charAt(i)== '.'){
+                m2c = m2c.getLeft();
+            }
+        }
+        return m2c.getValue();
     }
 
 
     // Você deve mudar o recheio deste método, de
     // acordo com os requisitos não-funcionais.
     public String charToMorse(char c) {
-        return " ";
+        StringBuilder word_reverse = new StringBuilder();
+        String word = "";
+
+        Node c2m = map.get(c);
+
+
+        while (c2m !=root ) {
+
+            if (c2m.getParent().getRight()== c2m){
+                word += "-";
+
+            }
+            else {
+                word += ".";
+            }
+            c2m = c2m.getParent();
+
+
+        }
+        word_reverse.append(word);
+        word = word_reverse.reverse().toString();
+        return word;
     }
 
 
     // Você deve mudar o recheio deste método, de
     // acordo com os requisitos não-funcionais.
     public LinkedList<String> getCodes() {
-        return new LinkedList<>();
-    }
+        LinkedList<String> list = new LinkedList<>();
+        Queue<Node> stack = new LinkedList<>();
+        stack.add(root);
 
+        while (!stack.isEmpty()) {
+            Node node = stack.element();
+            Node left = node.getLeft();
+            Node right = node.getRight();
+
+            if (left != null){
+                stack.add(left);
+            }
+            if (right!= null){
+                stack.add(right);
+            }
+            if (node.getValue() !='~' && node.getValue() !='+'&& node.getValue() !='=' && node.getValue() !='/' && node.getValue() !='^'){
+                list.add(charToMorse(node.getValue()));
+            }
+        stack.remove();
+    }
+        return list;
 }
+    }
