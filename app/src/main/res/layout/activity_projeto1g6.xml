@@ -20,25 +20,34 @@
     <Button
         android:id="@+id/input"
         android:layout_width="220sp"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:baselineAligned="false"
         android:layout_marginTop="50sp"
         android:text="Input"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:background="@drawable/custom_button"
+        />
 
     <Button
         android:id="@+id/dict"
         android:layout_width="220sp"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:text="Dicionário"
-        android:textSize="20sp" />
+        android:layout_marginTop="10sp"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:background="@drawable/custom_button"/>
 
     <Button
         android:id="@+id/atalho"
         android:layout_width="220sp"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
+        android:layout_marginTop="10sp"
         android:text="Preset"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:background="@drawable/custom_button"/>
 
 
 </LinearLayout>
