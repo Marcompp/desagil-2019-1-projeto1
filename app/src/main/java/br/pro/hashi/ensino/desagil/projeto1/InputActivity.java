@@ -14,12 +14,16 @@ public class InputActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
+        Translator translator = new Translator();
         TextView text = findViewById(R.id.text);
         EditText edit = findViewById(R.id.edit);
         Button setButton = findViewById(R.id.set);
         setButton.setOnClickListener((view) -> {
             String content = edit.getText().toString();
-            text.setText(content);
+            String word = "";
+            
+            word += translator.morseToChar(content);
+            text.setText(word);
         });
     }
 }

@@ -22,7 +22,9 @@
         android:id="@+id/set"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Traduzir"/>
+        android:text="Traduzir"
+        android:textAllCaps="false"
+        android:background="@drawable/custom_button"/>
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
