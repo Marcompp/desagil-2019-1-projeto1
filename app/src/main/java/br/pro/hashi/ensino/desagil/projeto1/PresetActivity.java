@@ -17,7 +17,7 @@ public class PresetActivity extends AppCompatActivity {
         Button m3 = findViewById(R.id.m3);
         Button m4 = findViewById(R.id.m4);
 
-        m1.setOnClickListener(view -> {
+       /* m1.setOnClickListener(view -> {
             Intent intent = new Intent(this, InputActivity.class);
             setContentView(R.layout.activity_input);
             TextView text = findViewById(R.id.edit);
@@ -43,6 +43,7 @@ public class PresetActivity extends AppCompatActivity {
             TextView text = findViewById(R.id.edit);
             text.setText("Pré Definida 4");
         });
-    }
 
+*/
+    }
 }
