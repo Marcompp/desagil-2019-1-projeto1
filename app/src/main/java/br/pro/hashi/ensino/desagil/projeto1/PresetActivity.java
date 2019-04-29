@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-/*import android.widget.Toast; */
 
 
 public class PresetActivity extends AppCompatActivity {
@@ -19,8 +17,8 @@ public class PresetActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_preset);
 
-            ListView listView = (ListView) findViewById(R.id.listView);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,msgpd);
+            ListView listView = findViewById(R.id.listView);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_expandable_list_item_1,msgpd);
             listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -28,12 +26,6 @@ public class PresetActivity extends AppCompatActivity {
                 Intent intent = new Intent(PresetActivity.this,InputActivity.class);
                 intent.putExtra("position",msgpd[position]);
                 startActivity(intent);
-
-                /*setContentView(R.layout.activity_input);
-                TextView text = findViewById(R.id.text);
-                text.setText(msgpd[position]);*/
-
-                /*Toast.makeText(PresetActivity.this, msgpd[position], Toast.LENGTH_SHORT).show();*/
             }
         });
     }
