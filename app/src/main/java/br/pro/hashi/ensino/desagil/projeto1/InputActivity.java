@@ -21,8 +21,41 @@ public class InputActivity extends AppCompatActivity{
         setButton.setOnClickListener((view) -> {
             String content = edit.getText().toString();
             String word = "";
-            
-            word += translator.morseToChar(content);
+            String [] split_slash = content.split("/");
+            boolean space = false;
+            boolean slash = false;
+            for (int i =0;i < content.length();i++){
+                if (content.charAt(i) == ' ') {
+                    space = true;
+                }
+                if (content.charAt(i)== '/'){
+                    slash = true;
+                }
+            }
+            if (slash) {
+                for (String s: split_slash){
+                    if (space){
+                    String [] space_slash =  s.split(" ");
+                    for (String a: space_slash){
+                        word += translator.morseToChar(a);
+                    }
+                } else { word+= translator.morseToChar(s);}
+                    word += " ";
+                }
+
+
+            }
+            else if (space){String [] space_slash =  content.split(" ");
+                for (String a: space_slash){
+                    word += translator.morseToChar(a);
+                }
+
+            }
+            else {word+= translator.morseToChar(content);}
+
+
+
+
             text.setText(word);
         });
     }
