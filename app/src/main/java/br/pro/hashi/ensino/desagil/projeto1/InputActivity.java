@@ -54,10 +54,9 @@ public class InputActivity extends AppCompatActivity{
 
         Translator translator = new Translator();
         TextView text = findViewById(R.id.text);
-        EditText edit = findViewById(R.id.edit);
         Button setButton = findViewById(R.id.set);
         setButton.setOnClickListener((view) -> {
-            String content = edit.getText().toString();
+            String content = morseView.getText().toString();
             String word = "";
             String [] split_slash = content.split("/");
             boolean space = false;
@@ -100,5 +99,4 @@ public class InputActivity extends AppCompatActivity{
 
 
 
-}
 }
