@@ -11,9 +11,7 @@ import java.util.LinkedList;
 
 public class InputActivity extends AppCompatActivity{
 
-    Button btnMorse;
-    TextView morseView;
-    EditText editText;
+
 
 
     private String oldMorse;
@@ -24,11 +22,10 @@ public class InputActivity extends AppCompatActivity{
         setContentView(R.layout.activity_input);
 
 
-        btnMorse = (Button)findViewById(R.id.btnMorse);
-        morseView = (TextView)findViewById(R.id.morseView);
+        Button btnMorse = findViewById(R.id.btnMorse);
+         TextView morseView = findViewById(R.id.morseView);
 
 
-        //final EditText editText = (EditText)findViewById(R.id.editText);
 
 
         btnMorse.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +52,34 @@ public class InputActivity extends AppCompatActivity{
         Translator translator = new Translator();
         TextView text = findViewById(R.id.text);
         Button setButton = findViewById(R.id.set);
+        Button spaceButton = findViewById(R.id.space);
+        Button wordButton = findViewById(R.id.word);
+        Button deleteButton = findViewById(R.id.delete);
+
+        deleteButton.setOnLongClickListener((view) -> {
+            morseView.setText("");
+            return  true;
+        });
+        deleteButton.setOnClickListener((view) -> {
+            String content = morseView.getText().toString();
+            content = content.substring(0,content.length()-1);
+            morseView.setText(content);
+
+        });
+
+
+        spaceButton.setOnClickListener((view) -> {
+            String content = morseView.getText().toString();
+            content += " ";
+            morseView.setText(content);
+        });
+
+        wordButton.setOnClickListener((view) ->{
+            String content =  morseView.getText().toString();
+            content += "/";
+            morseView.setText(content);
+        } );
+
         setButton.setOnClickListener((view) -> {
             String content = morseView.getText().toString();
             String word = "";

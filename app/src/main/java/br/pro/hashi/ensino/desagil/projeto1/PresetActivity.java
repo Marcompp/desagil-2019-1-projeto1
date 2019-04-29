@@ -1,49 +1,24 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class PresetActivity extends AppCompatActivity {
+    String msgpd[]= new String[] {"Estou com fome", "Estou com sede", "Preciso ir ao banheiro", "Quero uma breja"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preset);
-        Button m1 = findViewById(R.id.m1);
-        Button m2 = findViewById(R.id.m2);
-        Button m3 = findViewById(R.id.m3);
-        Button m4 = findViewById(R.id.m4);
 
-       /* m1.setOnClickListener(view -> {
-            Intent intent = new Intent(this, InputActivity.class);
-            setContentView(R.layout.activity_input);
-            TextView text = findViewById(R.id.edit);
-            text.setText("Pré Definida 1");
+        ListView listView = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> (this,android.R.layout.simple_expandable_list_item_1,msgpd);
+        listView.setAdapter(adapter);
 
-
-        });
-        m2.setOnClickListener(view -> {
-            Intent intent = new Intent(this, InputActivity.class);
-            setContentView(R.layout.activity_input);
-            TextView text = findViewById(R.id.edit);
-            text.setText("Pré Definida 2");
-    });
-        m3.setOnClickListener(view -> {
-            Intent intent = new Intent(this, InputActivity.class);
-            setContentView(R.layout.activity_input);
-            TextView text = findViewById(R.id.edit);
-            text.setText("Pré Definida 3");
-        });
-        m4.setOnClickListener(view -> {
-            Intent intent = new Intent(this, InputActivity.class);
-            setContentView(R.layout.activity_input);
-            TextView text = findViewById(R.id.edit);
-            text.setText("Pré Definida 4");
-        });
-
-*/
     }
 }
