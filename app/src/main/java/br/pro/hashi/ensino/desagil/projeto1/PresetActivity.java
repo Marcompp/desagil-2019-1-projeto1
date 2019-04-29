@@ -26,10 +26,12 @@ public class PresetActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(PresetActivity.this,InputActivity.class);
+                intent.putExtra("position",msgpd[position]);
                 startActivity(intent);
-                setContentView(R.layout.activity_input);
+
+                /*setContentView(R.layout.activity_input);
                 TextView text = findViewById(R.id.text);
-                text.setText(msgpd[position]);
+                text.setText(msgpd[position]);*/
 
                 /*Toast.makeText(PresetActivity.this, msgpd[position], Toast.LENGTH_SHORT).show();*/
             }

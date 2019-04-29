@@ -23,7 +23,6 @@ public class InputActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
-
         btnMorse = (Button)findViewById(R.id.btnMorse);
         morseView = (TextView)findViewById(R.id.morseView);
 
@@ -49,11 +48,11 @@ public class InputActivity extends AppCompatActivity{
         });
 
 
-
-
-
         Translator translator = new Translator();
         TextView text = findViewById(R.id.text);
+        String savedExtra = getIntent().getStringExtra("position");
+        if (savedExtra != null)
+            text.setText(savedExtra);
         Button setButton = findViewById(R.id.set);
         setButton.setOnClickListener((view) -> {
             String content = morseView.getText().toString();
