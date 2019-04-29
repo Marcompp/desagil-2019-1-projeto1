@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite aqui a sua mensagem"/>
+
     <Button
         android:id="@+id/set"
         android:layout_width="match_parent"
@@ -25,10 +26,36 @@
         android:text="Traduzir"
         android:textAllCaps="false"
         android:background="@drawable/custom_button"/>
+
+    <TextView
+        android:id="@+id/morseView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="36sp"
+        tools:text="Morse" />
+
+    <Button
+        android:id="@+id/btnMorse"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/custom_button"
+        android:text=".-"
+        android:textSize="30sp" />
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
