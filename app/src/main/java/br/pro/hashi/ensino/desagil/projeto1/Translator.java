@@ -88,7 +88,7 @@ public class Translator {
         Node f = new Node('f');
         f.setParent(u);
         u.setLeft(f);
-        Node blank1 = new Node('~');
+        Node blank1 = new Node(' ');
         blank1.setParent(u);
         u.setRight(blank1);
 
@@ -96,7 +96,7 @@ public class Translator {
         Node l = new Node('l');
         l.setParent(r);
         r.setLeft(l);
-        Node blank2 = new Node('~');
+        Node blank2 = new Node(' ');
         blank2.setParent(r);
         r.setRight(blank2);
 
@@ -133,10 +133,10 @@ public class Translator {
         g.setRight(q);
 
 
-        Node blank3 = new Node('~');
+        Node blank3 = new Node(' ');
         blank3.setParent(o);
         o.setLeft(blank3);
-        Node blank4 = new Node('~');
+        Node blank4 = new Node(' ');
         blank4.setParent(o);
         o.setRight(blank4);
 
@@ -245,17 +245,19 @@ public class Translator {
     // acordo com os requisitos não-funcionais.
     public char morseToChar(String code) {
         Node m2c = root;
-
-        for (int i =0; i< code.length();i++){
-            if (code.charAt(i) == '-'){
-                m2c = m2c.getRight();
+        if (code.length() <= 5) {
+            for (int i = 0; i < code.length(); i++) {
+                if (code.charAt(i) == '-') {
+                    m2c = m2c.getRight();
+                } else if (code.charAt(i) == '.') {
+                    m2c = m2c.getLeft();
+                }
             }
-            else if (code.charAt(i)== '.'){
-                m2c = m2c.getLeft();
-            }
+            return m2c.getValue();
         }
-        return m2c.getValue();
+        else {return ' ';}
     }
+
 
 
     // Você deve mudar o recheio deste método, de
@@ -307,8 +309,8 @@ public class Translator {
             if (node.getValue() !='~' && node.getValue() !='+'&& node.getValue() !='=' && node.getValue() !='/' && node.getValue() !='^'){
                 list.add(charToMorse(node.getValue()));
             }
-        stack.remove();
-    }
+            stack.remove();
+        }
         return list;
-}
     }
+}
