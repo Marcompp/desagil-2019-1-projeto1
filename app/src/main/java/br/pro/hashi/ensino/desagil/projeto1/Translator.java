@@ -306,7 +306,7 @@ public class Translator {
             if (right!= null){
                 stack.add(right);
             }
-            if (node.getValue() !='~' && node.getValue() !='+'&& node.getValue() !='=' && node.getValue() !='/' && node.getValue() !='^'){
+            if (node.getValue() !=' ' && node.getValue() !='+'&& node.getValue() !='=' && node.getValue() !='/' && node.getValue() !='^'){
                 list.add(charToMorse(node.getValue()));
             }
             stack.remove();
