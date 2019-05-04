@@ -1,32 +1,86 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 
 public class PresetActivity extends AppCompatActivity {
-    String msgpd[]= new String[] {"Estou com fome", "Estou com sede", "Preciso ir ao banheiro", "Quero uma breja"};
+
+    private  DatabaseReference database;
+
+    private Button add_btn;
+    private  ListView listView;
+
+    private  ArrayList<String> arrayList = new ArrayList<>();
+    private  ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_preset);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_preset);
 
-            ListView listView = findViewById(R.id.listView);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_expandable_list_item_1,msgpd);
-            listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        database = FirebaseDatabase.getInstance().getReference();
+
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+
+        add_btn = findViewById(R.id.add);
+        listView = findViewById(R.id.listView);
+
+        listView.setAdapter(adapter);
+
+        add_btn.setOnClickListener(view -> {
+            Intent intent = new Intent(this, AddPreset.class);
+            startActivity(intent);
+        });
+
+        database.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(PresetActivity.this,InputActivity.class);
-                intent.putExtra("position",msgpd[position]);
-                startActivity(intent);
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String content = dataSnapshot.getValue(String.class);
+
+                arrayList.add(content);
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+
     }
 }
