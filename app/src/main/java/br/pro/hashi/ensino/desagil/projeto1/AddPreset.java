@@ -89,7 +89,7 @@ public class AddPreset extends AppCompatActivity{
         } );
 
         add.setOnClickListener(view -> {
-            message.push().setValue(text.getText());    
+            message.push().setValue(text.getText());
         });
 
         setButton.setOnClickListener((view) -> {

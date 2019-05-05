@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "135617070164",
+    "firebase_url": "https://morse-translator-5bbdd.firebaseio.com",
+    "project_id": "morse-translator-5bbdd",
+    "storage_bucket": "morse-translator-5bbdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135617070164:android:9d55fd8b543206e9",
+        "android_client_info": {
+          "package_name": "br.pro.hashi.ensino.desagil.projeto1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135617070164-vfl8r62497v7lhak7e2c51vcj29onpub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.pro.hashi.ensino.desagil.projeto1",
+            "certificate_hash": "2fb1a196ddbe417502f85a2fba005a073b8641da"
+          }
+        },
+        {
+          "client_id": "135617070164-i1h05t046hq6b2r3ue5dc7nr9f3c0n7d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSn_81URcIui9rc_0oNpgUdMcXAVu6LPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135617070164-i1h05t046hq6b2r3ue5dc7nr9f3c0n7d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
