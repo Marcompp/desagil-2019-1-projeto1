@@ -82,5 +82,14 @@ public class PresetActivity extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+                intent.putExtra("position",arrayList.get(i));
+                startActivity(intent);
+            }
+        });
+
     }
 }
