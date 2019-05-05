@@ -51,7 +51,7 @@ public class InputActivity extends AppCompatActivity{
             text.setText(savedExtra);
         Button setButton = findViewById(R.id.set);
         Button spaceButton = findViewById(R.id.space);
-        Button wordButton = findViewById(R.id.word);
+        //Button wordButton = findViewById(R.id.word);*/
         Button deleteButton = findViewById(R.id.delete);
 
         deleteButton.setOnLongClickListener((view) -> {
@@ -65,18 +65,35 @@ public class InputActivity extends AppCompatActivity{
 
         });
 
-
-        spaceButton.setOnClickListener((view) -> {
+        spaceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String content = morseView.getText().toString();
+                content += " ";
+                morseView.setText(content);
+            }
+        });
+        /*spaceButton.setOnLongClickListener((view) -> {
             String content = morseView.getText().toString();
             content += " ";
             morseView.setText(content);
-        });
+        });*/
 
-        wordButton.setOnClickListener((view) ->{
+        spaceButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String content =  morseView.getText().toString();
+                content += "/";
+                morseView.setText(content);
+                return true;
+            }
+        });
+        /*spaceButton.setOnClickListener((view) ->{
             String content =  morseView.getText().toString();
             content += "/";
             morseView.setText(content);
-        } );
+        } );*/
+
 
         setButton.setOnClickListener((view) -> {
             String content = morseView.getText().toString();
