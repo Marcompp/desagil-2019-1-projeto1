@@ -59,9 +59,10 @@ public class InputActivity extends AppCompatActivity{
             return  true;
         });
         deleteButton.setOnClickListener((view) -> {
+            if (morseView.getText().toString().length() != 0){
             String content = morseView.getText().toString();
             content = content.substring(0,content.length()-1);
-            morseView.setText(content);
+            morseView.setText(content);}
 
         });
 
