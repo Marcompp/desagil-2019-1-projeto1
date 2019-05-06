@@ -61,19 +61,20 @@ public class AddPreset extends AppCompatActivity{
             text.setText(savedExtra);
         Button setButton = findViewById(R.id.set);
         Button spaceButton = findViewById(R.id.space);
-        Button wordButton = findViewById(R.id.word);
         Button deleteButton = findViewById(R.id.delete);
 
         deleteButton.setOnLongClickListener((view) -> {
+
             morseView.setText("");
             return  true;
         });
         deleteButton.setOnClickListener((view) -> {
+            if (morseView.getText().toString().length() != 0){
             String content = morseView.getText().toString();
             content = content.substring(0,content.length()-1);
             morseView.setText(content);
 
-        });
+        }});
 
 
         spaceButton.setOnClickListener((view) -> {
@@ -81,12 +82,15 @@ public class AddPreset extends AppCompatActivity{
             content += " ";
             morseView.setText(content);
         });
-
-        wordButton.setOnClickListener((view) ->{
-            String content =  morseView.getText().toString();
-            content += "/";
-            morseView.setText(content);
-        } );
+        spaceButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String content =  morseView.getText().toString();
+                content += "/";
+                morseView.setText(content);
+                return true;
+            }
+        });
 
         add.setOnClickListener(view -> {
             message.push().setValue(text.getText());

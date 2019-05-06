@@ -62,22 +62,14 @@
         android:text=".-"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/word"
-        android:layout_width="105dp"
-        android:layout_height="67dp"
-        android:layout_marginLeft="251dp"
-        android:layout_marginTop="-148dp"
-        android:background="@drawable/custom_button"
-        android:text="/"
-        android:textAllCaps="false" />
+
 
     <Button
         android:id="@+id/delete"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginLeft="251dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="-148dp"
         android:background="@drawable/custom_button"
         android:text="Apagar"
         android:textAllCaps="false" />
@@ -86,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120sp"
+        android:layout_marginTop="90sp"
         android:text="Adicionar" />
 
 
