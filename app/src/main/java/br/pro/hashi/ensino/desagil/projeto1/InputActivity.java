@@ -11,91 +11,74 @@ import java.util.LinkedList;
 
 public class InputActivity extends AppCompatActivity{
 
+    //Definindo componentes da página
+    private Button morseButton;
+    private TextView morseView;
+    private TextView text;
+    private Button setButton;
+    private  Button spaceButton;
+    private Button deleteButton;
 
+    //Criando um objeto da classe Translator para traduzir o texto em Morse
+    private Translator translator;
 
-
-    private String oldMorse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
-        
-        Button btnMorse = findViewById(R.id.btnMorse);
-        TextView morseView = findViewById(R.id.morseView);
+        //Iniciando componentes
+        morseButton = findViewById(R.id.btnMorse);
+        morseView = findViewById(R.id.morseView);
+        text = findViewById(R.id.text);
+        setButton = findViewById(R.id.set);
+        spaceButton = findViewById(R.id.space);
+        deleteButton = findViewById(R.id.delete);
+
+        translator = new Translator();
+
+        //Função que quando o botão morseButton é clickado, adiciona um . em morseView
+        morseButton.setOnClickListener(view ->
+                morseView.append("."));
 
 
-        btnMorse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                morseView.append(".");
-            }
+        //Função que quando o botão morseButton é clickado por um longo período de tempo, adiciona um - em morseView
+        morseButton.setOnLongClickListener(view -> {
+            morseView.append("-");
+            return true;
         });
 
-        btnMorse.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-                morseView.append("-");
-                return true;
-            }
-        });
-
-
-        Translator translator = new Translator();
-        TextView text = findViewById(R.id.text);
-        String savedExtra = getIntent().getStringExtra("position");
-        if (savedExtra != null)
-            text.setText(savedExtra);
-        Button setButton = findViewById(R.id.set);
-        Button spaceButton = findViewById(R.id.space);
-        //Button wordButton = findViewById(R.id.word);*/
-        Button deleteButton = findViewById(R.id.delete);
-
+        //Função que deleta todo o conteúdo de morseView se o deleteButton for clickado por um longo período
         deleteButton.setOnLongClickListener((view) -> {
             morseView.setText("");
             return  true;
         });
+
+        //deleta apenas o ultimo Char de morseView
         deleteButton.setOnClickListener((view) -> {
             if (morseView.getText().toString().length() != 0){
             String content = morseView.getText().toString();
             content = content.substring(0,content.length()-1);
             morseView.setText(content);}
-
         });
 
-        spaceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String content = morseView.getText().toString();
-                content += " ";
-                morseView.setText(content);
-            }
-        });
-        /*spaceButton.setOnLongClickListener((view) -> {
+        //Se clickado, pula um espaço
+        spaceButton.setOnClickListener(view -> {
             String content = morseView.getText().toString();
             content += " ";
             morseView.setText(content);
-        });*/
-
-        spaceButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                String content =  morseView.getText().toString();
-                content += "/";
-                morseView.setText(content);
-                return true;
-            }
         });
-        /*spaceButton.setOnClickListener((view) ->{
+
+        //Se clickado por um longo período, adiciona uma barra, que significa inicio de uma nova palavra em Morse
+        spaceButton.setOnLongClickListener(v -> {
             String content =  morseView.getText().toString();
             content += "/";
             morseView.setText(content);
-        } );*/
+            return true;
+        });
 
-
+        //Botão que traduz o texto de morseView para alfanumérico e o coloca em text
         setButton.setOnClickListener((view) -> {
             String content = morseView.getText().toString();
             String word = "";
@@ -131,13 +114,7 @@ public class InputActivity extends AppCompatActivity{
             }
             else {word+= translator.morseToChar(content);}
 
-
-
-
             text.setText(word);
         });
     }
-
-
-
 }

@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -38,7 +37,7 @@ public class PresetActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
 
         add_btn = findViewById(R.id.add);
         listView = findViewById(R.id.listView);
@@ -46,7 +45,7 @@ public class PresetActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         add_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, AddPreset.class);
+            Intent intent = new Intent(this, AddPresetActivity.class);
             startActivity(intent);
         });
 
@@ -82,13 +81,10 @@ public class PresetActivity extends AppCompatActivity {
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(PresetActivity.this, InputActivity.class);
-                intent.putExtra("position",arrayList.get(i));
-                startActivity(intent);
-            }
+        listView.setOnItemClickListener((adapterView, view, i, l) -> {
+            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+            intent.putExtra("position",arrayList.get(i));
+            startActivity(intent);
         });
 
     }
