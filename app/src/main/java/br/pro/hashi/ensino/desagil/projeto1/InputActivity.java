@@ -15,7 +15,6 @@ public class InputActivity extends AppCompatActivity{
     private Button morseButton;
     private TextView morseView;
     private TextView text;
-    private Button setButton;
     private  Button spaceButton;
     private Button deleteButton;
 
@@ -32,20 +31,21 @@ public class InputActivity extends AppCompatActivity{
         morseButton = findViewById(R.id.btnMorse);
         morseView = findViewById(R.id.morseView);
         text = findViewById(R.id.text);
-        setButton = findViewById(R.id.set);
         spaceButton = findViewById(R.id.space);
         deleteButton = findViewById(R.id.delete);
 
         translator = new Translator();
 
         //Função que quando o botão morseButton é clickado, adiciona um . em morseView
-        morseButton.setOnClickListener(view ->
-                morseView.append("."));
+        morseButton.setOnClickListener(view ->{
+                morseView.append(".");
+                translate();});
 
 
         //Função que quando o botão morseButton é clickado por um longo período de tempo, adiciona um - em morseView
         morseButton.setOnLongClickListener(view -> {
             morseView.append("-");
+            translate();
             return true;
         });
 
@@ -78,43 +78,44 @@ public class InputActivity extends AppCompatActivity{
             return true;
         });
 
-        //Botão que traduz o texto de morseView para alfanumérico e o coloca em text
-        setButton.setOnClickListener((view) -> {
-            String content = morseView.getText().toString();
-            String word = "";
-            String [] split_slash = content.split("/");
-            boolean space = false;
-            boolean slash = false;
-            for (int i =0;i < content.length();i++){
-                if (content.charAt(i) == ' ') {
-                    space = true;
-                }
-                if (content.charAt(i)== '/'){
-                    slash = true;
-                }
+    }
+
+    private void translate() {
+
+        String content = morseView.getText().toString();
+        String word = "";
+        String [] split_slash = content.split("/");
+        boolean space = false;
+        boolean slash = false;
+        for (int i =0;i < content.length();i++){
+            if (content.charAt(i) == ' ') {
+                space = true;
             }
-            if (slash) {
-                for (String s: split_slash){
-                    if (space){
+            if (content.charAt(i)== '/'){
+                slash = true;
+            }
+        }
+        if (slash) {
+            for (String s: split_slash){
+                if (space){
                     String [] space_slash =  s.split(" ");
                     for (String a: space_slash){
                         word += translator.morseToChar(a);
                     }
                 } else { word+= translator.morseToChar(s);}
-                    word += " ";
-                }
-
-
+                word += " ";
             }
-            else if (space){String [] space_slash =  content.split(" ");
-                for (String a: space_slash){
-                    word += translator.morseToChar(a);
-                }
 
+
+        }
+        else if (space){String [] space_slash =  content.split(" ");
+            for (String a: space_slash){
+                word += translator.morseToChar(a);
             }
-            else {word+= translator.morseToChar(content);}
 
-            text.setText(word);
-        });
+        }
+        else {word+= translator.morseToChar(content);}
+
+        text.setText(word);
     }
 }
