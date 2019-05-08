@@ -37,9 +37,9 @@ public class SMSInputActivity extends AppCompatActivity {
 
 
         EditText textMessage = findViewById(R.id.text_message);
-        Button buttonSend = findViewById(R.id.btnSend);
+        Button buttonSend = findViewById(R.id.button_send);
 
-
+        Button setButton  = findViewById(R.id.set);
         btnMorse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +63,6 @@ public class SMSInputActivity extends AppCompatActivity {
         String savedExtra = getIntent().getStringExtra("position");
         if (savedExtra != null)
             text.setText(savedExtra);
-        Button setButton = findViewById(R.id.set);
         Button spaceButton = findViewById(R.id.space);
         //Button wordButton = findViewById(R.id.word);*/
         Button deleteButton = findViewById(R.id.delete);
