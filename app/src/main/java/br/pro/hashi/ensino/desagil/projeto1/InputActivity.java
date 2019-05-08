@@ -1,5 +1,6 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class InputActivity extends AppCompatActivity{
     private TextView text;
     private  Button spaceButton;
     private Button deleteButton;
+    private Button sendButton;
 
     //Criando um objeto da classe Translator para traduzir o texto em Morse
     private Translator translator;
@@ -34,6 +36,7 @@ public class InputActivity extends AppCompatActivity{
         text = findViewById(R.id.text);
         spaceButton = findViewById(R.id.space);
         deleteButton = findViewById(R.id.delete);
+        sendButton = findViewById(R.id.button_send);
 
         translator = new Translator();
 
@@ -82,6 +85,10 @@ public class InputActivity extends AppCompatActivity{
             return true;
         });
 
+        sendButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PermissionActivity.class);
+            startActivity(intent);
+        });
 
         if (savedExtra != null)
             text.setText(savedExtra);
