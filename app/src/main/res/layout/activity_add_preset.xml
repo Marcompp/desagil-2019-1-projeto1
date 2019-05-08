@@ -60,13 +60,13 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/button_send"
+        android:id="@+id/add"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginLeft="251dp"
         android:layout_marginTop="-148dp"
         android:background="@drawable/custom_button"
-        android:drawableStart="@drawable/icon"
+        android:drawableStart="@drawable/add"
         android:paddingLeft="36dp"
         android:textAllCaps="false" />
 
@@ -81,15 +81,6 @@
         android:paddingLeft="32dp"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:drawableStart="@drawable/add"
-        android:layout_marginLeft="120sp"
-        android:layout_marginTop="90sp"
-        android:paddingLeft="30dp"/>
 
 
 
