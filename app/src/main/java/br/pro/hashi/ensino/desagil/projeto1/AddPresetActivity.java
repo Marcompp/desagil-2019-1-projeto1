@@ -7,26 +7,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.LinkedList;
 
-public class InputActivity extends AppCompatActivity{
+public class AddPresetActivity extends AppCompatActivity{
 
     //Definindo componentes da página
     private Button morseButton;
     private TextView morseView;
     private TextView text;
-    private  Button spaceButton;
+    private Button spaceButton;
     private Button deleteButton;
+    private Button addButton;
 
     //Criando um objeto da classe Translator para traduzir o texto em Morse
     private Translator translator;
 
-    private String savedExtra;
+    //Criando um objeto do Firebase para adicionar as frases
+    private FirebaseDatabase database;
+    private DatabaseReference message;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input);
+        setContentView(R.layout.activity_add_preset);
 
         //Iniciando componentes
         morseButton = findViewById(R.id.btnMorse);
@@ -34,16 +41,21 @@ public class InputActivity extends AppCompatActivity{
         text = findViewById(R.id.text);
         spaceButton = findViewById(R.id.space);
         deleteButton = findViewById(R.id.delete);
+        addButton = findViewById(R.id.add);
 
         translator = new Translator();
 
-        //String que pega o texto da mensagens rápidas e adiciona em Text
-        savedExtra = getIntent().getStringExtra("position");
+        database = FirebaseDatabase.getInstance();
+        message = database.getReference();
+
+        //Adiciona a mensagem escrita em text para o firebase
+        addButton.setOnClickListener(view ->
+            message.push().setValue(text.getText()));
 
         //Função que quando o botão morseButton é clickado, adiciona um . em morseView
         morseButton.setOnClickListener(view ->{
-                morseView.append(".");
-                translate();});
+            morseView.append(".");
+            translate();});
 
 
         //Função que quando o botão morseButton é clickado por um longo período de tempo, adiciona um - em morseView
@@ -62,9 +74,9 @@ public class InputActivity extends AppCompatActivity{
         //deleta apenas o ultimo Char de morseView
         deleteButton.setOnClickListener((view) -> {
             if (morseView.getText().toString().length() != 0){
-            String content = morseView.getText().toString();
-            content = content.substring(0,content.length()-1);
-            morseView.setText(content);}
+                String content = morseView.getText().toString();
+                content = content.substring(0,content.length()-1);
+                morseView.setText(content);}
         });
 
         //Se clickado, pula um espaço
@@ -81,10 +93,6 @@ public class InputActivity extends AppCompatActivity{
             morseView.setText(content);
             return true;
         });
-
-
-        if (savedExtra != null)
-            text.setText(savedExtra);
 
     }
 
