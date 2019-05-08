@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +25,12 @@ import java.util.ArrayList;
 public class PresetActivity extends AppCompatActivity {
 
     private  DatabaseReference database;
-
+    private int selIndex = 0;
+    private TextView msg;
     private Button add_btn;
+    private Button up_btn;
+    private Button down_btn;
+    private Button send_btn;
     private  ListView listView;
 
     private  ArrayList<String> arrayList = new ArrayList<>();
@@ -40,13 +45,39 @@ public class PresetActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
 
+        msg = findViewById(R.id.msg);
         add_btn = findViewById(R.id.add);
+        up_btn = findViewById(R.id.up);
+        down_btn = findViewById(R.id.down);
+        send_btn = findViewById(R.id.send);
         listView = findViewById(R.id.listView);
 
         listView.setAdapter(adapter);
 
         add_btn.setOnClickListener(view -> {
             Intent intent = new Intent(this, AddPreset.class);
+            startActivity(intent);
+        });
+
+        up_btn.setOnClickListener(view -> {
+            selIndex--;
+            if (selIndex < 0) {
+                selIndex = 0;
+            }
+            msg.setText(listView.getItemAtPosition(selIndex).toString());
+        });
+
+        down_btn.setOnClickListener(view -> {
+            selIndex++;
+            if (selIndex >= listView.getCount()) {
+                selIndex = listView.getCount() - 1;
+            }
+            msg.setText(listView.getItemAtPosition(selIndex).toString());
+        });
+
+        send_btn.setOnClickListener(view -> {
+            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+            intent.putExtra("position",arrayList.get(selIndex));
             startActivity(intent);
         });
 
@@ -85,11 +116,12 @@ public class PresetActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(PresetActivity.this, InputActivity.class);
-                intent.putExtra("position",arrayList.get(i));
-                startActivity(intent);
+                // Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+                // intent.putExtra("position",arrayList.get(i));
+                // startActivity(intent);
             }
         });
+
 
     }
 }
