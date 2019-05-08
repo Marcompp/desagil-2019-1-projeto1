@@ -7,12 +7,7 @@
     android:orientation="vertical"
     tools:context=".InputActivity">
 
-    <TextView
-        android:id="@+id/intro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mensagem:"
-        />
+
 
 
 
@@ -20,41 +15,43 @@
         android:id="@+id/morseView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="36sp"
         tools:text="Morse" />
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:background="@drawable/custom_button"
+        android:layout_marginTop="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
         android:text="Seu texto será traduzido aqui"
-        android:textSize="25sp" />
+        android:textAlignment="center"
+        android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/set"
-        android:layout_width="105dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/custom_button"
-        android:text="Traduzir"
-        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/space"
         android:layout_width="105dp"
         android:layout_height="67dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="155dp"
         android:background="@drawable/custom_button"
-        android:text="Espaço"
+        android:drawableStart="@drawable/space"
+        android:paddingLeft="33dp"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnMorse"
         android:layout_width="138dp"
         android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="109dp"
         android:layout_marginTop="-138dp"
         android:layout_marginBottom="11dp"
@@ -62,24 +59,37 @@
         android:text=".-"
         android:textSize="30sp" />
 
-
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="105dp"
+        android:layout_height="67dp"
+        android:layout_marginLeft="251dp"
+        android:layout_marginTop="-148dp"
+        android:background="@drawable/custom_button"
+        android:drawableStart="@drawable/icon"
+        android:paddingLeft="36dp"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginLeft="251dp"
-        android:layout_marginTop="-148dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/custom_button"
-        android:text="Apagar"
+        android:drawableStart="@drawable/delete"
+        android:paddingLeft="32dp"
         android:textAllCaps="false" />
+
     <Button
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:drawableStart="@drawable/add"
         android:layout_marginLeft="120sp"
         android:layout_marginTop="90sp"
-        android:text="Adicionar" />
+        android:paddingLeft="30dp"/>
 
 
 
