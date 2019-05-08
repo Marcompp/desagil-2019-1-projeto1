@@ -21,6 +21,7 @@ public class InputActivity extends AppCompatActivity{
     //Criando um objeto da classe Translator para traduzir o texto em Morse
     private Translator translator;
 
+    private String savedExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class InputActivity extends AppCompatActivity{
         deleteButton = findViewById(R.id.delete);
 
         translator = new Translator();
+
+        //String que pega o texto da mensagens rápidas e adiciona em Text
+        savedExtra = getIntent().getStringExtra("position");
 
         //Função que quando o botão morseButton é clickado, adiciona um . em morseView
         morseButton.setOnClickListener(view ->{
@@ -77,6 +81,10 @@ public class InputActivity extends AppCompatActivity{
             morseView.setText(content);
             return true;
         });
+
+
+        if (savedExtra != null)
+            text.setText(savedExtra);
 
     }
 
