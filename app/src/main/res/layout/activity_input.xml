@@ -34,20 +34,12 @@
         android:textAlignment="center"
         android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/set"
-        android:layout_width="105dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/custom_button"
-        android:text="Traduzir"
-        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/space"
         android:layout_width="105dp"
         android:layout_height="67dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="155dp"
         android:background="@drawable/custom_button"
         android:text="Espaço/Barra"
         android:textAllCaps="false" />

@@ -149,21 +149,58 @@ public class Translator {
         h.setRight(n4);
 
 
+        Node blank5 = new Node(' ');
+        blank5.setParent(v);
+        v.setLeft(blank5);
         Node n3 = new Node('3');
         n3.setParent(v);
         v.setRight(n3);
 
 
+        Node blank6 = new Node(' ');
+        blank6.setParent(f);
+        f.setLeft(blank6);
+        Node blank7 = new Node(' ');
+        blank7.setParent(f);
+        f.setRight(blank7);
+
+
+        Node blank8 = new Node(' ');
+        blank8.setParent(blank1);
+        blank1.setLeft(blank8);
         Node n2 = new Node('2');
         n2.setParent(blank1);
         blank1.setRight(n2);
 
 
+        Node blank9 = new Node(' ');
+        blank9.setParent(l);
+        l.setLeft(blank6);
+        Node blank10 = new Node(' ');
+        blank10.setParent(l);
+        blank10.setRight(blank7);
+
+
         Node plus = new Node('+');
         plus.setParent(blank2)  ;
         blank2.setLeft(plus);
+        Node blank11 = new Node(' ');
+        blank11.setParent(blank2);
+        blank2.setRight(blank11);
 
 
+        Node blank12 = new Node(' ');
+        blank12.setParent(p);
+        p.setLeft(blank12);
+        Node blank13 = new Node(' ');
+        blank13.setParent(p);
+        p.setRight(blank13);
+
+
+
+        Node blank14 = new Node(' ');
+        blank14.setParent(j);
+        j.setLeft(blank14);
         Node n1 = new Node('1');
         n1.setParent(j);
         j.setRight(n1);
@@ -179,16 +216,49 @@ public class Translator {
         Node slash = new Node('/');
         slash.setParent(x);
         x.setLeft(slash);
+        Node blank15 = new Node(' ');
+        blank15.setParent(x);
+        x.setRight(blank15);
+
+
+        Node blank16 = new Node(' ');
+        blank16.setParent(c);
+        c.setLeft(blank16);
+        Node blank17 = new Node(' ');
+        blank17.setParent(c);
+        c.setRight(blank17);
+
+
+        Node blank18 = new Node(' ');
+        blank18.setParent(y);
+        y.setLeft(blank18);
+        Node blank19 = new Node(' ');
+        blank19.setParent(y);
+        y.setRight(blank19);
 
 
         Node n7 = new Node('7');
         n7.setParent(z);
         z.setLeft(n7);
+        Node blank20 = new Node(' ');
+        blank20.setParent(z);
+        z.setRight(blank20);
+
+
+        Node blank21 = new Node(' ');
+        blank21.setParent(q);
+        q.setLeft(blank21);
+        Node blank22 = new Node(' ');
+        blank22.setParent(q);
+        q.setRight(blank22);
 
 
         Node n8 = new Node('8');
         n8.setParent(blank3);
         blank3.setLeft(n8);
+        Node blank23 = new Node(' ');
+        blank23.setParent(blank3);
+         blank3.setRight(blank23);
 
         Node n9 = new Node('9');
         n9.setParent(blank4);
