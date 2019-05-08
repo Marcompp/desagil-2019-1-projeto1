@@ -81,6 +81,28 @@ public class PresetActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        up_btn.setOnClickListener(view -> {
+            selIndex--;
+            if (selIndex < 0) {
+                selIndex = 0;
+            }
+            msg.setText(listView.getItemAtPosition(selIndex).toString());
+        });
+
+        down_btn.setOnClickListener(view -> {
+            selIndex++;
+            if (selIndex >= listView.getCount()) {
+                selIndex = listView.getCount() - 1;
+            }
+            msg.setText(listView.getItemAtPosition(selIndex).toString());
+        });
+
+        send_btn.setOnClickListener(view -> {
+            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+            intent.putExtra("position",arrayList.get(selIndex));
+            startActivity(intent);
+        });
+
         database.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
