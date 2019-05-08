@@ -27,9 +27,10 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="60sp"
+        android:layout_marginTop="20sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/border"
         android:text="Seu texto será traduzido aqui"
         android:textAlignment="center"
         android:textSize="22sp" />
@@ -41,7 +42,8 @@
         android:layout_height="67dp"
         android:layout_marginTop="155dp"
         android:background="@drawable/custom_button"
-        android:text="Espaço/Barra"
+        android:drawableStart="@drawable/space"
+        android:paddingLeft="33dp"
         android:textAllCaps="false" />
 
     <Button
@@ -64,7 +66,8 @@
         android:layout_marginLeft="251dp"
         android:layout_marginTop="-148dp"
         android:background="@drawable/custom_button"
-        android:text="Enviar"
+        android:drawableStart="@drawable/icon"
+        android:paddingLeft="36dp"
         android:textAllCaps="false" />
 
     <Button
@@ -74,7 +77,8 @@
         android:layout_marginLeft="251dp"
         android:layout_marginTop="2dp"
         android:background="@drawable/custom_button"
-        android:text="Apagar"
+        android:drawableStart="@drawable/delete"
+        android:paddingLeft="32dp"
         android:textAllCaps="false" />
 
 
