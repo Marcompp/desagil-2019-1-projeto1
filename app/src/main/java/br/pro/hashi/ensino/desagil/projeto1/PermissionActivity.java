@@ -10,7 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class PermissionActivity extends AppCompatActivity {
 
     // Esta constante é um código que identifica o pedido de "mandar sms".
     private static final int REQUEST_SEND_SMS = 0;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_permission);
 
         Button buttonExample = findViewById(R.id.button_example);
 
