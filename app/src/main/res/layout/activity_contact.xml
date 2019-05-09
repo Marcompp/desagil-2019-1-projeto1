@@ -16,65 +16,70 @@
         android:listSelector="@android:color/darker_gray" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-160dp"
+        android:text="Mensagem"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="@drawable/border"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item selecionado"
+        android:textSize="16sp" />
+
+    <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="-80dp"
-        android:layout_alignParentTop="true"
-        android:text="..."
+        android:text="Nenhum numero selecionado"
+        android:background="@drawable/border"
         android:textColor="#000"
         android:textSize="20sp" />
 
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="0sp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:columnCount="3"
-        android:rowCount="5"
-        tools:context=".MainActivity">
 
-        <Button
-            android:id="@+id/add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:background="@drawable/custom_button"
-            android:drawableStart="@drawable/add"
-            android:paddingLeft="30dp"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:background="@drawable/custom_button"
-            android:text="Cima"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="2"
-            android:background="@drawable/custom_button"
-            android:text="Baixo"
-            android:textAllCaps="false" />
+    <Button
+        android:id="@+id/up"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:drawableStart="@drawable/up"
+        android:paddingLeft="40dp"
+        android:layout_marginStart="3sp"
+        android:background="@drawable/custom_button"
+        />
 
-        <Button
-            android:id="@+id/send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="1"
-            android:background="@drawable/custom_button"
-            android:text="Enviar"
-            android:textAllCaps="false" />
-    </GridLayout>
+    <Button
+        android:id="@+id/send"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="121dp"
+        android:paddingLeft="40dp"
+        android:drawableStart="@drawable/icon"
+        android:background="@drawable/custom_button"/>
+
+    <Button
+        android:id="@+id/down"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:drawableStart="@drawable/down"
+        android:paddingLeft="40dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="240dp"
+        android:background="@drawable/custom_button"/>
+
 
 </LinearLayout>

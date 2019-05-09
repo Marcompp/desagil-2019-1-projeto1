@@ -101,6 +101,7 @@ public class InputActivity extends AppCompatActivity{
 
 
                 Intent intent = new Intent(this, ContactActivity.class);
+                intent.putExtra("position",text.getText().toString());
                 startActivity(intent);
             } else {
 
@@ -111,6 +112,8 @@ public class InputActivity extends AppCompatActivity{
 
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
             }
+
+
         });
 
 
