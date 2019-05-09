@@ -100,7 +100,7 @@ public class InputActivity extends AppCompatActivity{
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
 
-                Intent intent = new Intent(this, SMSInputActivity.class);
+                Intent intent = new Intent(this, SMSActivity.class);
                 startActivity(intent);
             } else {
 
@@ -118,7 +118,7 @@ public class InputActivity extends AppCompatActivity{
             text.setText(savedExtra);
 
     }
-    
+
     //Funcao que utiliza a classe translator para traduzir o codigo de Morse para Alfanumérico
     private void translate() {
 
@@ -165,7 +165,7 @@ public class InputActivity extends AppCompatActivity{
         if (requestCode == REQUEST_SEND_SMS && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
 
-            Intent intent = new Intent(this, SMSInputActivity.class);
+            Intent intent = new Intent(this, SMSActivity.class);
             startActivity(intent);
         }
     }
