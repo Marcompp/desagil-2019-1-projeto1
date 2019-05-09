@@ -40,10 +40,10 @@
         />
 
     <Button
-        android:id="@+id/dict"
+        android:id="@+id/atalho"
         android:layout_width="113.333dp"
         android:layout_height="200sp"
-        android:text="Dicionário"
+        android:text="Mensagens Rápidas"
         android:layout_marginTop="-200dp"
         android:layout_marginLeft="1dp"
         android:textSize="20sp"
@@ -51,12 +51,12 @@
         android:background="@drawable/custom_button"/>
 
     <Button
-        android:id="@+id/atalho"
+        android:id="@+id/dict"
         android:layout_width="113.333dp"
         android:layout_height="200sp"
         android:layout_marginTop="-200dp"
         android:layout_marginLeft="118dp"
-        android:text="Mensagens Rápidas"
+        android:text="Dicionário"
         android:textSize="20sp"
         android:textAllCaps="false"
         android:background="@drawable/custom_button"/>

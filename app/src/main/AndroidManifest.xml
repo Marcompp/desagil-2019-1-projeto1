@@ -25,8 +25,6 @@
         </activity>
         <activity android:name=".InputActivity" />
         <activity android:name=".DictionaryActivity" />
-        <activity android:name=".SMSActivity" />
-        <activity android:name=".SMSInputActivity" />
         <activity android:name=".ContactsActivity"/>
     </application>
 

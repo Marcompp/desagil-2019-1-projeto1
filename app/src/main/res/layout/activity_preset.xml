@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center">
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
@@ -15,15 +16,21 @@
         android:choiceMode="singleChoice"
         android:listSelector="@android:color/darker_gray" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item selecionado:"
+        android:layout_marginTop="-140dp"/>
     <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="-80dp"
-        android:layout_alignParentTop="true"
-        android:text="..."
+        android:background="@drawable/border"
+        android:text="Nenhum item selecionado"
         android:textColor="#000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_marginBottom="10sp"/>
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -31,7 +38,7 @@
         android:layout_height="0sp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:columnCount="3"
+        android:columnCount="5"
         android:rowCount="5"
         tools:context=".MainActivity">
 
@@ -51,19 +58,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_row="0"
+            android:layout_row="1"
+            android:paddingLeft="27dp"
             android:background="@drawable/custom_button"
-            android:text="Cima"
+            android:drawableStart="@drawable/up"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="2"
+            android:layout_column="4"
+            android:paddingLeft="27dp"
+            android:layout_row="1"
             android:background="@drawable/custom_button"
-            android:text="Baixo"
+            android:drawableStart="@drawable/down"
             android:textAllCaps="false" />
 
         <Button
@@ -71,9 +80,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
+            android:paddingLeft="27dp"
             android:layout_row="1"
             android:background="@drawable/custom_button"
-            android:text="Enviar"
+            android:drawableStart="@drawable/icon"
             android:textAllCaps="false" />
     </GridLayout>
 
