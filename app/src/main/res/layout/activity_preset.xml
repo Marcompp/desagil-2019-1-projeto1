@@ -19,6 +19,7 @@
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="-80dp"
         android:layout_alignParentTop="true"
         android:text="..."
         android:textColor="#000"
@@ -31,7 +32,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:columnCount="3"
-        android:rowCount="3"
+        android:rowCount="5"
         tools:context=".MainActivity">
 
         <Button

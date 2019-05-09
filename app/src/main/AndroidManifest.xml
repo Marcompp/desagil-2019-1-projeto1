@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".PermissionActivity"></activity>
         <activity android:name=".AddPresetActivity" />
         <activity android:name=".PresetActivity" />
         <activity android:name=".Projeto1G6">
