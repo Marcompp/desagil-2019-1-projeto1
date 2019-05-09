@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ContactActivity"></activity>
+
         <activity android:name=".AddPresetActivity" />
         <activity android:name=".PresetActivity" />
         <activity android:name=".Projeto1G6">
@@ -27,6 +27,7 @@
         <activity android:name=".DictionaryActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".SMSInputActivity" />
+        <activity android:name=".ContactsActivity"/>
     </application>
 
 </manifest>

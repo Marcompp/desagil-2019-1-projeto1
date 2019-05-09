@@ -30,7 +30,7 @@ public class Projeto1G6 extends AppCompatActivity {
         startActivity(intent);
     }
     private void openDict() {
-        Intent intent = new Intent(this, ContactActivity.class);
+        Intent intent = new Intent(this, ContactsActivity.class);
         startActivity(intent);
     }
     private void openAtalho() {

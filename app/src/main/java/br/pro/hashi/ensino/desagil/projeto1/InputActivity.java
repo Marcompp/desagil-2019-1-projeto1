@@ -96,11 +96,12 @@ public class InputActivity extends AppCompatActivity{
 
         sendButton.setOnClickListener(v -> {
 
+
             // Verifica se o aplicativo tem a permissão desejada.
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
 
-                Intent intent = new Intent(this, ContactActivity.class);
+                Intent intent = new Intent(this, ContactsActivity.class);
                 intent.putExtra("position",text.getText().toString());
                 startActivity(intent);
             } else {
@@ -112,6 +113,7 @@ public class InputActivity extends AppCompatActivity{
 
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
             }
+
 
 
         });

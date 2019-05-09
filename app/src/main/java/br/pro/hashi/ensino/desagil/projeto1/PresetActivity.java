@@ -87,7 +87,7 @@ public class PresetActivity extends AppCompatActivity {
 
 
         send_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(PresetActivity.this, ContactActivity.class);
+            Intent intent = new Intent(PresetActivity.this, ContactsActivity.class);
             intent.putExtra("position",arrayList.get(selIndex));
             startActivity(intent);
         });
