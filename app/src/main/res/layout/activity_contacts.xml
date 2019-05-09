@@ -24,7 +24,7 @@
         android:id="@+id/contato"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/numero"
+        android:layout_above="@id/num_contato"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
