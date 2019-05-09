@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -74,11 +75,6 @@ public class PresetActivity extends AppCompatActivity {
             msg.setText(listView.getItemAtPosition(selIndex).toString());
         });
 
-        send_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
-            intent.putExtra("position",arrayList.get(selIndex));
-            startActivity(intent);
-        });
 
         up_btn.setOnClickListener(view -> {
             selIndex--;
@@ -88,16 +84,10 @@ public class PresetActivity extends AppCompatActivity {
             msg.setText(listView.getItemAtPosition(selIndex).toString());
         });
 
-        down_btn.setOnClickListener(view -> {
-            selIndex++;
-            if (selIndex >= listView.getCount()) {
-                selIndex = listView.getCount() - 1;
-            }
-            msg.setText(listView.getItemAtPosition(selIndex).toString());
-        });
+
 
         send_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
+            Intent intent = new Intent(PresetActivity.this, ContactsActivity.class);
             intent.putExtra("position",arrayList.get(selIndex));
             startActivity(intent);
         });

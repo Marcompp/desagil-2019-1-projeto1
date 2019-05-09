@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +28,24 @@ public class ContactsActivity extends AppCompatActivity {
     private ListView lvContatos;
     private ListaContatosAdapter adapter;
     private List<Contatos> mListaContatos;
+    private int selIndex = 0;
+    private TextView msg;
+    private TextView content;
+    private Button up_btn;
+    private Button down_btn;
+    private Button send_btn;
+    private  String savedExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+        msg = findViewById(R.id.msg);
+        up_btn = findViewById(R.id.up);
+        down_btn = findViewById(R.id.down);
+        send_btn = findViewById(R.id.send);
+        savedExtra = getIntent().getStringExtra("position");
+        content = findViewById(R.id.content);
 
         lvContatos = (ListView) findViewById(R.id.listview_contatos);
 
@@ -53,7 +67,56 @@ public class ContactsActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Clicked Contatos id =" + view.getTag(), Toast.LENGTH_SHORT).show();
             }
         });*/
+
+        up_btn.setOnClickListener(view -> {
+            selIndex--;
+            if (selIndex < 0) {
+                selIndex = 0;
+            }
+            msg.setText(String.valueOf(mListaContatos.get(selIndex).getNumber()));
+        });
+
+        if (savedExtra != null){
+            content.setText(savedExtra);
+        }
+
+        send_btn.setOnClickListener(view -> {
+            SmsManager manager = SmsManager.getDefault();
+            if (savedExtra != null) {
+                manager.sendTextMessage(msg.getText().toString(), null, savedExtra, null, null);
+            }});
+
+        down_btn.setOnClickListener(view -> {
+            selIndex++;
+            if (selIndex >= adapter.getCount()) {
+                selIndex = adapter.getCount() - 1;
+            }
+            //msg.setText(adapter.getItem(selIndex).toString());
+            //tvnumero.setText(String.valueOf(mListaContatos.get(position).getNumber()));
+            msg.setText(String.valueOf(mListaContatos.get(selIndex).getNumber()));
+
+        });
+        if (selIndex >= adapter.getCount()){
+            selIndex -= 1;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public class Contatos {

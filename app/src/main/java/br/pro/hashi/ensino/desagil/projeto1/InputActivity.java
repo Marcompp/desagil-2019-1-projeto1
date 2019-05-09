@@ -1,6 +1,11 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +24,10 @@ public class InputActivity extends AppCompatActivity{
     private  Button spaceButton;
     private Button deleteButton;
     private Button sendButton;
+
+
+    private static final int REQUEST_SEND_SMS = 0;
+
 
     //Criando um objeto da classe Translator para traduzir o texto em Morse
     private Translator translator;
@@ -86,15 +95,36 @@ public class InputActivity extends AppCompatActivity{
         });
 
         sendButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ContactsActivity.class);
-            startActivity(intent);
+
+
+            // Verifica se o aplicativo tem a permissão desejada.
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+
+
+                Intent intent = new Intent(this, ContactsActivity.class);
+                intent.putExtra("position",text.getText().toString());
+                startActivity(intent);
+            } else {
+
+
+                String[] permissions = new String[]{
+                        Manifest.permission.SEND_SMS,
+                };
+
+                ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
+            }
+
+
+
         });
+
 
         if (savedExtra != null)
             text.setText(savedExtra);
 
     }
 
+    //Funcao que utiliza a classe translator para traduzir o codigo de Morse para Alfanumérico
     private void translate() {
 
         String content = morseView.getText().toString();
@@ -132,5 +162,16 @@ public class InputActivity extends AppCompatActivity{
         else {word+= translator.morseToChar(content);}
 
         text.setText(word);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+
+        if (requestCode == REQUEST_SEND_SMS && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+            Intent intent = new Intent(this, SMSActivity.class);
+            startActivity(intent);
+        }
     }
 }
