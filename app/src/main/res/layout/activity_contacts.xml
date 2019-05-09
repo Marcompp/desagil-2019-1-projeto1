@@ -25,6 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
         android:text=""
         android:textSize="20sp" />
 
@@ -32,13 +34,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item selecionado"
+        android:text="Item selecionado:"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
         android:text="Nenhum numero selecionado"
         android:background="@drawable/border"
         android:textColor="#000"
@@ -46,9 +50,9 @@
 
     <Button
         android:id="@+id/up"
+        android:layout_marginTop="2dp"
         android:layout_width="113.333dp"
         android:layout_height="80dp"
-        android:layout_marginTop="80sp"
         android:textSize="20sp"
         android:drawableStart="@drawable/up"
         android:paddingLeft="40dp"
