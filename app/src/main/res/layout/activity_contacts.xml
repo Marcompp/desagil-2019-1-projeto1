@@ -9,6 +9,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
-        android:divider="@null"
-        />
+        android:divider="@null" />
+
+    <TextView
+        android:id="@+id/numero"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Description"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/contato"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/numero"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:gravity="center_vertical"
+        android:text="Example application"
+        android:textSize="16sp" />
 </RelativeLayout>
