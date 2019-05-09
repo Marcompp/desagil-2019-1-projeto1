@@ -54,18 +54,18 @@ public class ContactsActivity extends AppCompatActivity {
                 this.nomes=nome;
                 this.numeros=num;
             }
+
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
             LayoutInflater layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.row, parent, false);
-            TextView nomes = row.findViewById(R.id.contato);
-            TextView numeros = row.findViewById(R.id.numero);
+            TextView nomes = row.findViewById(R.id.c);
+            TextView numeros = row.findViewById(R.id.n);
             nomes.setText(nome[position]);
             numeros.setText(num[position]);
             return row;
         }
 
         }
-
 }
