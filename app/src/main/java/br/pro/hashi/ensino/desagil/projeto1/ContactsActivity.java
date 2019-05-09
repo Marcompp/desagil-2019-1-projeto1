@@ -19,12 +19,19 @@ import java.util.ArrayList;
 
 public class ContactsActivity extends AppCompatActivity {
     private ListView contactList;
+    private Button btn_get;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         contactList = findViewById(R.id.listView);
+        btn_get = findViewById(R.id.pegaContatos);
+
+        btn_get.setOnClickListener(v -> {
+            get(v);
+
+        });
     }
 
     private void get (View v){
