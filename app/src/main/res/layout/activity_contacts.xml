@@ -6,9 +6,9 @@
     tools:context=".ContactsActivity">
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:divider="@null" />
+        android:divider="@color/common_google_signin_btn_text_dark_default" />
 
 </RelativeLayout>
