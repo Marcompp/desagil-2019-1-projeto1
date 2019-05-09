@@ -3,6 +3,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,7 +17,6 @@ public class ContactActivity extends AppCompatActivity {
     String msgpd[]= new String[] {"11966357075", "11999078090", "6281240350", "11949774919"};
     private int selIndex = 0;
     private TextView msg;
-    private Button add_btn;
     private Button up_btn;
     private Button down_btn;
     private Button send_btn;
@@ -27,7 +27,6 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
         msg = findViewById(R.id.msg);
-        add_btn = findViewById(R.id.add);
         up_btn = findViewById(R.id.up);
         down_btn = findViewById(R.id.down);
         send_btn = findViewById(R.id.send);
@@ -58,6 +57,11 @@ public class ContactActivity extends AppCompatActivity {
                 selIndex = listView.getCount() - 1;
             }
             msg.setText(listView.getItemAtPosition(selIndex).toString());
+        });
+
+        send_btn.setOnClickListener(view -> {
+            SmsManager manager = SmsManager.getDefault();
+            manager.sendTextMessage(msg.getText().toString(), null, "aaaa", null, null);
         });
     }
 }
