@@ -36,21 +36,20 @@ public class ContactsActivity extends AppCompatActivity {
         lvContatos = (ListView) findViewById(R.id.listview_contatos);
 
         mListaContatos = new ArrayList<>();
-        //Add sample data for list
-        //We can get data from DB, webservice here
+
         mListaContatos.add(new Contatos(1, "André", "11999078090"));
         mListaContatos.add(new Contatos(2, "Leonardo", "11966357075"));
+        mListaContatos.add(new Contatos(3, "Pedro", "6281240350"));
+        mListaContatos.add(new Contatos(4, "Marco", "11949774919"));
 
 
-        //Init adapter
         adapter = new ListaContatosAdapter(getApplicationContext(), mListaContatos);
         lvContatos.setAdapter(adapter);
 
         /*lvContatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Do something
-                //Ex: display msg with Contatos id get from view.getTag
+
                 Toast.makeText(getApplicationContext(), "Clicked Contatos id =" + view.getTag(), Toast.LENGTH_SHORT).show();
             }
         });*/
@@ -62,14 +61,11 @@ public class ContactsActivity extends AppCompatActivity {
         private String name;
         private String numero;
 
-        //Constructor
         public Contatos(int id, String name, String numero) {
             this.id = id;
             this.name = name;
             this.numero = numero;
         }
-
-        //Setter, getter
 
         public int getId() {
             return id;
@@ -97,11 +93,9 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     public class ListaContatosAdapter extends BaseAdapter {
-
         private Context mContext;
         private List<Contatos> mListaContatos;
 
-        //Constructor
 
         public ListaContatosAdapter(Context mContext, List<Contatos> mListaContatos) {
             this.mContext = mContext;
@@ -128,11 +122,10 @@ public class ContactsActivity extends AppCompatActivity {
             View v = View.inflate(mContext, R.layout.item_product_list, null);
             TextView tvName = (TextView) v.findViewById(R.id.tv_name);
             TextView tvnumero = (TextView) v.findViewById(R.id.tv_numero);
-            //Set text for TextView
+
             tvName.setText(mListaContatos.get(position).getName());
             tvnumero.setText(String.valueOf(mListaContatos.get(position).getNumber()));
 
-            //Save product id to tag
             v.setTag(mListaContatos.get(position).getId());
 
             return v;
