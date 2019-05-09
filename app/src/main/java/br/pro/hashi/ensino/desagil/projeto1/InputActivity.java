@@ -99,16 +99,12 @@ public class InputActivity extends AppCompatActivity{
             // Verifica se o aplicativo tem a permissão desejada.
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
-                // Se tem, podemos iniciar a SMSActivity direto.
-                Intent intent = new Intent(this, SMSActivity.class);
+
+                Intent intent = new Intent(this, SMSInputActivity.class);
                 startActivity(intent);
             } else {
 
-                // Senão, precisamos pedir essa permissão.
 
-                // Cria um vetor de permissões a pedir. Como queremos
-                // uma só, parece um pouco feio, mas é bem conveniente
-                // quando queremos pedir várias permissões de uma vez.
                 String[] permissions = new String[]{
                         Manifest.permission.SEND_SMS,
                 };
@@ -122,7 +118,8 @@ public class InputActivity extends AppCompatActivity{
             text.setText(savedExtra);
 
     }
-
+    
+    //Funcao que utiliza a classe translator para traduzir o codigo de Morse para Alfanumérico
     private void translate() {
 
         String content = morseView.getText().toString();
@@ -164,14 +161,11 @@ public class InputActivity extends AppCompatActivity{
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        // Verifica se de fato é uma resposta ao pedido acima e se a
-        // resposta foi positiva. As respostas estão armazenadas no
-        // vetor grantResults, que pode estar vazio se o usuário
-        // escolheu simplesmente ignorar o pedido e não responder nada.
+
         if (requestCode == REQUEST_SEND_SMS && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-            // Se foi positiva, podemos iniciar a SMSActivity.
-            Intent intent = new Intent(this, SMSActivity.class);
+
+            Intent intent = new Intent(this, SMSInputActivity.class);
             startActivity(intent);
         }
     }

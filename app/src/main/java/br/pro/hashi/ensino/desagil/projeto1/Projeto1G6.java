@@ -16,18 +16,13 @@ public class Projeto1G6 extends AppCompatActivity {
         Button input= findViewById(R.id.input);
         Button dict = findViewById(R.id.dict);
         Button atalho = findViewById(R.id.atalho);
-        Button sms = findViewById(R.id.sms);
+
 
         input.setOnClickListener(view -> openInput());
         dict.setOnClickListener(view -> openDict());
         atalho.setOnClickListener(view -> openAtalho());
-        sms.setOnClickListener(view -> openSMS());
 }
 
-    private void openSMS() {
-        Intent intent = new Intent(this, SMSActivity.class);
-        startActivity(intent);
-    }
 
 
     private void openInput() {
