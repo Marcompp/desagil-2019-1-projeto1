@@ -86,7 +86,7 @@ public class InputActivity extends AppCompatActivity{
         });
 
         sendButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, PermissionActivity.class);
+            Intent intent = new Intent(this, ContactsActivity.class);
             startActivity(intent);
         });
 
