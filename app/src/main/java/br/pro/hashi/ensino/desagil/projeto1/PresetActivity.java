@@ -74,11 +74,6 @@ public class PresetActivity extends AppCompatActivity {
             msg.setText(listView.getItemAtPosition(selIndex).toString());
         });
 
-        send_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(PresetActivity.this, InputActivity.class);
-            intent.putExtra("position",arrayList.get(selIndex));
-            startActivity(intent);
-        });
 
         up_btn.setOnClickListener(view -> {
             selIndex--;
