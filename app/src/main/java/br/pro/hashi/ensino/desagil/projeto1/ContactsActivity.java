@@ -31,7 +31,7 @@ public class ContactsActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            list= findViewById(R.id.listView);
+            list = findViewById(R.id.listView);
 
             MyAdapter adapter = new MyAdapter(this, nome, num);
             list.setAdapter(adapter);
@@ -60,8 +60,8 @@ public class ContactsActivity extends AppCompatActivity {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
             LayoutInflater layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.row, parent, false);
-            TextView nomes = row.findViewById(R.id.c);
-            TextView numeros = row.findViewById(R.id.n);
+            TextView nomes = row.findViewById(R.id.contato);
+            TextView numeros = row.findViewById(R.id.numero);
             nomes.setText(nome[position]);
             numeros.setText(num[position]);
             return row;

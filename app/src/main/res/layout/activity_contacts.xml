@@ -11,24 +11,4 @@
         android:id="@+id/listView"
         android:divider="@null" />
 
-    <TextView
-        android:id="@+id/num_contato"
-        android:layout_width="fill_parent"
-        android:layout_height="26dip"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="..."
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/contato"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/num_contato"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignWithParentIfMissing="true"
-        android:gravity="center_vertical"
-        android:text="..."
-        android:textSize="16sp" />
 </RelativeLayout>
