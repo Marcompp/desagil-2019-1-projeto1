@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:layout_marginStart="0dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-160dp"
+        android:text="Mensagem"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="@drawable/border"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item selecionado"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Nenhum numero selecionado"
+        android:background="@drawable/border"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+
+
+
+    <Button
+        android:id="@+id/up"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:drawableStart="@drawable/up"
+        android:paddingLeft="40dp"
+        android:layout_marginStart="3sp"
+        android:background="@drawable/custom_button"
+        />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="121dp"
+        android:paddingLeft="40dp"
+        android:drawableStart="@drawable/icon"
+        android:background="@drawable/custom_button"/>
+
+    <Button
+        android:id="@+id/down"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:drawableStart="@drawable/down"
+        android:paddingLeft="40dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="240dp"
+        android:background="@drawable/custom_button"/>
+
+
+</LinearLayout>

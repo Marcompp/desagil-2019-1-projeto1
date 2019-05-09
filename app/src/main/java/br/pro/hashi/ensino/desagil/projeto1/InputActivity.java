@@ -100,7 +100,8 @@ public class InputActivity extends AppCompatActivity{
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
 
-                Intent intent = new Intent(this, SMSActivity.class);
+                Intent intent = new Intent(this, ContactActivity.class);
+                intent.putExtra("position",text.getText().toString());
                 startActivity(intent);
             } else {
 
@@ -111,6 +112,8 @@ public class InputActivity extends AppCompatActivity{
 
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
             }
+
+
         });
 
 
