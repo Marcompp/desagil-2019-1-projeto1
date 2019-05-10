@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class DictionaryActivity extends AppCompatActivity {
@@ -83,7 +84,7 @@ public class DictionaryActivity extends AppCompatActivity {
             }
         }
 
-        Arrays.sort(Ltm);
+        Collections.sort(Ltm);
 
 
 
