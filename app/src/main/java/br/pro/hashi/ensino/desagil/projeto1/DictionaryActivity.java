@@ -61,28 +61,24 @@ public class DictionaryActivity extends AppCompatActivity {
             Letra2.add(letra+"-");
             Letras.add(letra+".");
             Letras.add(letra+"-");
-            System.out.println(1);
         }
         for (String letra:Letra2) {
             Letra3.add(letra+".");
             Letra3.add(letra+"-");
             Letras.add(letra+".");
             Letras.add(letra+"-");
-            System.out.println(2);
         }
         for (String letra:Letra3) {
             Letra4.add(letra+".");
             Letra4.add(letra+"-");
             Letras.add(letra+".");
             Letras.add(letra+"-");
-            System.out.println(3);
         }
         for (String letra:Letra4) {
             Letra5.add(letra+".");
             Letra5.add(letra+"-");
             Letras.add(letra+".");
             Letras.add(letra+"-");
-            System.out.println(4);
         }
 
         //for (char alpha:Alfabeto) {
