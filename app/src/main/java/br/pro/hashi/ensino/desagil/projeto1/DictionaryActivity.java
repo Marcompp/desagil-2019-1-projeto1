@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class DictionaryActivity extends AppCompatActivity {
@@ -15,7 +16,10 @@ public class DictionaryActivity extends AppCompatActivity {
 
     LinkedList<String> Mtl = new LinkedList<String>();
     LinkedList<String> Ltm = new LinkedList<String>();
-    char Alfabeto[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','/','+','='};
+    char Alfabeto[] = {'a','b','c','d','e','f','g','h','i',
+            'j','k','l','m','n','o','p','q','r','s','t','j',
+            'v','w','x','y','z','0','1','2','3','4','5','6',
+            '7','8','9','/','+','='};
     LinkedList<String> Letras = new LinkedList<String>();
     LinkedList<String> Letra1 = new LinkedList<String>();
     LinkedList<String> Letra2 = new LinkedList<String>();
@@ -65,18 +69,21 @@ public class DictionaryActivity extends AppCompatActivity {
             Letras.add(letra+"-");
         }
 
-        for (char alpha:Alfabeto) {
-             String string = translator.charToMorse(alpha);
-             Ltm.add(alpha+" => "+string);
+        //for (char alpha:Alfabeto) {
+        //     String string = translator.charToMorse(alpha);
+        //     Ltm.add(alpha+" => "+string);
 
-        }
+        //}
 
         for (String string:Letras) {
             char alpha = translator.morseToChar(string);
             if (alpha != ' ') {
                 Mtl.add(string+" => "+alpha);
+                Ltm.add(alpha+" => "+string);
             }
         }
+
+        Arrays.sort(Ltm);
 
 
 
