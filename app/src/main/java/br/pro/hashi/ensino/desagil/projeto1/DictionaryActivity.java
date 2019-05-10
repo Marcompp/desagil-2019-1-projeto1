@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -16,23 +17,16 @@ public class DictionaryActivity extends AppCompatActivity {
 
     private ListView dict;
 
-    LinkedList<String> Mtl;
-    LinkedList<String> Ltm;
-    char Alfabeto[] = {'a','b','c','d','e','f','g','h','i',
-            'j','k','l','m','n','o','p','q','r','s','t','j',
-            'v','w','x','y','z','0','1','2','3','4','5','6',
-            '7','8','9','/','+','='};
-    LinkedList<String> Letras;
-    LinkedList<String> Letra1;
-    LinkedList<String> Letra2;
-    LinkedList<String> Letra3;
-    LinkedList<String> Letra4;
-    LinkedList<String> Letra5;
+    private LinkedList<String> Mtl;
+    private LinkedList<String> Ltm;
+
+    private LinkedList<String> Letras;
+    private Button buttonLtoM;
+    private Button buttonMtoL;
 
 
     private Translator translator;
 
-    private boolean ismtv = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,55 +39,26 @@ public class DictionaryActivity extends AppCompatActivity {
         Mtl = new LinkedList<>();
         Ltm = new LinkedList<>();
 
-        Letra1 = new LinkedList<>();
+
         Letras = new LinkedList<>();
-        Letra2 = new LinkedList<>();
-        Letra3 = new LinkedList<>();
-        Letra4 = new LinkedList<>();
-        Letra5 = new LinkedList<>();
+        Letras = translator.getCodes();
+        buttonLtoM = findViewById(R.id.ltoMButton);
+        buttonMtoL = findViewById(R.id.mToLButton);
 
-        Letra1.add(".");
-        Letra1.add("/");
-        Letras.add(".");
-        Letras.add("/");
-        for (String letra:Letra1) {
-            Letra2.add(letra+".");
-            Letra2.add(letra+"-");
-            Letras.add(letra+".");
-            Letras.add(letra+"-");
-        }
-        for (String letra:Letra2) {
-            Letra3.add(letra+".");
-            Letra3.add(letra+"-");
-            Letras.add(letra+".");
-            Letras.add(letra+"-");
-        }
-        for (String letra:Letra3) {
-            Letra4.add(letra+".");
-            Letra4.add(letra+"-");
-            Letras.add(letra+".");
-            Letras.add(letra+"-");
-        }
-        for (String letra:Letra4) {
-            Letra5.add(letra+".");
-            Letra5.add(letra+"-");
-            Letras.add(letra+".");
-            Letras.add(letra+"-");
-        }
 
-        //for (char alpha:Alfabeto) {
-        //     String string = translator.charToMorse(alpha);
-        //     Ltm.add(alpha+" => "+string);
-
-        //}
 
         for (String string:Letras) {
-            char alpha = translator.morseToChar(string);
+
+            char alpha;
+
+            alpha = translator.morseToChar(string);
             if (alpha != ' ') {
-                Mtl.add(string+" => "+alpha);
-                Ltm.add(alpha+" => "+string);
+                Mtl.add(string + " ==> " + alpha);
+                Ltm.add(alpha + " ==> " + string);
             }
+
         }
+
 
         Collections.sort(Ltm);
 
@@ -103,14 +68,21 @@ public class DictionaryActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,Ltm);
 
 
-        //ArrayAdapter<String> mtlAdapter = new ListAdapter<>(this, R.layout.activity_dictionary, R.id.textView, Mtl);
-        //ArrayAdapter<String> ltmAdapter = new ArrayAdapter<String>(this, R.layout.activity_dictionary, R.id.textView, Ltm);
 
-        if (ismtv) {
-            dict.setAdapter(ltmadapter);
-        } else {
+        buttonMtoL.setOnClickListener(view -> {
+
+
             dict.setAdapter(mtladapter);
-        }
+        });
+
+
+        buttonLtoM.setOnClickListener(view -> {
+            dict.setAdapter(ltmadapter);
+        });
+
+        dict.setAdapter(ltmadapter);
+
+
 
 
 
