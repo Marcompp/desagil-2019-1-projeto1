@@ -45,12 +45,12 @@ public class DictionaryActivity extends AppCompatActivity {
         Mtl = new LinkedList<>();
         Ltm = new LinkedList<>();
 
-        Letra1 = new LinkedList<String>();
-        Letras = new LinkedList<String>();
-        Letra2 = new LinkedList<String>();
-        Letra3 = new LinkedList<String>();
-        Letra4 = new LinkedList<String>();
-        Letra5 = new LinkedList<String>();
+        Letra1 = new LinkedList<>();
+        Letras = new LinkedList<>();
+        Letra2 = new LinkedList<>();
+        Letra3 = new LinkedList<>();
+        Letra4 = new LinkedList<>();
+        Letra5 = new LinkedList<>();
 
         Letra1.add(".");
         Letra1.add("/");
