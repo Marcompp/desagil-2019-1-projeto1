@@ -6,10 +6,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".DictionaryActivity">
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="wrap_content"
-            android:src="@drawable/morse"
-        android:layout_height="wrap_content"
+
+
+
+
+
+
+    <Button
+        android:id="@+id/mToLButton"
+        android:layout_marginTop="460dp"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:textSize="20sp"
+        android:text="A -> .-"
+        android:paddingLeft="0dp"
+        android:layout_marginStart="3sp"
+        android:background="@drawable/custom_button"
         />
+
+    <Button
+        android:id="@+id/ltoMButton"
+        android:layout_width="113.333dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="244sp"
+        android:layout_marginTop="-80dp"
+        android:background="@drawable/custom_button"
+        android:paddingLeft="2dp"
+        android:text=".- -> A"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="-540dp">
+
+    </ListView>
+
+
 </LinearLayout>
