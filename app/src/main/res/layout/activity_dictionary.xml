@@ -13,7 +13,7 @@
 
 
     <Button
-        android:id="@+id/mToLButton"
+        android:id="@+id/lToMButton"
         android:layout_marginTop="460dp"
         android:layout_width="113.333dp"
         android:layout_height="80dp"
@@ -25,7 +25,7 @@
         />
 
     <Button
-        android:id="@+id/ltoMButton"
+        android:id="@+id/mtoLButton"
         android:layout_width="113.333dp"
         android:layout_height="80dp"
         android:layout_marginStart="244sp"
